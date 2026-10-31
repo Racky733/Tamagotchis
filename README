@@ -1,0 +1,36 @@
+# Tamagotchis
+
+Un petit jeu en console fait en Java. Le but est de garder en vie des tamagotchis (des animaux virtuels) en les nourrissant.
+
+## Comment ça marche
+
+- On choisit combien de tamagotchis on veut, et on leur donne un nom.
+- À chaque cycle, chaque tamagotchi vieillit d'un an et perd 1 point d'énergie.
+- On peut nourrir un seul tamagotchi par cycle.
+- Si un tamagotchi n'a plus d'énergie, il meurt : c'est perdu.
+- Si tous les tamagotchis arrivent à leur âge limite, c'est gagné.
+
+## Les fichiers
+
+- `Tamagotchi.java` : la classe qui décrit un tamagotchi (son nom, son âge, son énergie, et ce qu'il peut faire : parler, manger, vivre).
+- `SimulTamagotchis.java` : le programme principal qui lance le jeu.
+
+## Lancer le jeu
+
+Il faut Java 17 ou plus. Dans le terminal, dans le dossier du projet :
+
+```
+javac Tamagotchi.java SimulTamagotchis.java
+java SimulTamagotchis
+```
+
+## Ce que j'ai appris
+
+- Créer une classe avec des attributs privés et un constructeur
+- Utiliser `Random` pour tirer des nombres au hasard
+- Utiliser une `ArrayList` pour ranger plusieurs objets
+- Faire une boucle `while` qui s'arrête quand la partie est finie
+
+## Auteure
+
+Rokhaya Diouf
