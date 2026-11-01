@@ -1,16 +1,49 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-
 public class SimulTamagotchis {
+
+    public static int lireEntier(Scanner sc) {
+    while (!sc.hasNextInt()) {
+        System.out.println("Ce n'est pas un nombre, réessaie !");
+        sc.next();
+    }
+    return sc.nextInt();
+}
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Entrer le nombre de Tamagotchis :");
-        int n = sc.nextInt();
-        sc.nextLine();
+        int n;
+        do{
+            System.out.print("Entrer le nombre de Tamagotchis :");
+            n = lireEntier(sc);
+            sc.nextLine();
+            if(n <= 0)
+                System.out.println("Entrez un nombre superieur a 0 !");
+
+        }while(n <= 0);
+
         ArrayList<Tamagotchi> liste = new ArrayList<>();
         for(int i =0; i < n; i++){
-            System.out.println("Entrer le nom pour le nouveau Tamagotchi :");
-            String nom = sc.nextLine();
+            String nom;
+            boolean nomValide;
+            do{
+                nomValide = true;
+
+                System.out.print("Quel nom pour le nouveau tamagotchi :");
+                
+                nom = sc.nextLine();
+                
+                if (nom.trim().isEmpty()) {
+                    nomValide = false;
+                }
+                if (!nom.isEmpty()) {
+                    if (Character.isDigit(nom.charAt(0))) {
+                        nomValide = false;
+                    }
+                }
+                if (!nomValide){
+                    System.out.println("Entrer une chaine de caractere !");
+                }
+            }while(!nomValide);
             Tamagotchi T1 = new Tamagotchi(nom);
             liste.add(T1);
         }
@@ -37,7 +70,7 @@ public class SimulTamagotchis {
                 }
             }
             if(tousGagnes){
-                System.out.println("GAGNE !!");
+                System.out.println("GAGNÉ !!");
                 fini = true;
             }
         }
@@ -49,8 +82,14 @@ public class SimulTamagotchis {
                 }
             }
         System.out.println();
-        System.out.print("Nourrir quel tamagotchi ? ");
-        int choix = sc.nextInt();
+        int choix;
+        do{
+            System.out.print("Nourrir quel tamagotchi ? ");
+            choix = lireEntier(sc);
+            if(choix < 0 || choix >= liste.size())
+                System.out.println("Numero de Tamgotchi invalide !");
+
+        }while(choix < 0 || choix >= liste.size());
         liste.get(choix).manger();
     }
         x++;
@@ -59,3 +98,4 @@ public class SimulTamagotchis {
        sc.close();
     }
 }
+

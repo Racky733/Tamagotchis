@@ -21,9 +21,9 @@ public class Tamagotchi {
     public void parler(){
         String status;
         if (energie > 5){
-            status = "Heureux";
+            status = "tout va bien !";
         }else{
-            status = "Affamé";
+            status = "je suis affamé !";
         }
         System.out.println(nom+" : "+status);
     }
@@ -31,11 +31,11 @@ public class Tamagotchi {
      public void manger(){
         Random rand = new Random();
         if(energie >= maxEnergie){
-            System.out.println("J'ai pas faim !");
+            System.out.println(nom+": je n'ai pas faim !!");
         }
         else{
             energie += rand.nextInt(1,4);
-            System.out.println("J'ai bien mangé !");
+            System.out.println(nom+" : Merci !");
                 if(energie > maxEnergie)
                     energie = maxEnergie;
         }
@@ -54,7 +54,7 @@ public class Tamagotchi {
             return true;
         }
         if(energie <= 0){
-            System.out.println("Je meurs !");
+            System.out.println("je meurs... Arrrggh !");
             return false;
         }
         age++;
