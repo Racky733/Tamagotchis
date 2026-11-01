@@ -86,10 +86,13 @@ public class SimulTamagotchis {
         do{
             System.out.print("Nourrir quel tamagotchi ? ");
             choix = lireEntier(sc);
-            if(choix < 0 || choix >= liste.size())
+            if(choix < 0 || choix >= liste.size() || liste.get(choix).ageLimite()){
                 System.out.println("Numero de Tamgotchi invalide !");
+            }else if (liste.get(choix).ageLimite()) {
+                System.out.println(liste.get(choix).getNom() + " a déjà gagné !");
+            }
 
-        }while(choix < 0 || choix >= liste.size());
+        }while(choix < 0 || choix >= liste.size() || liste.get(choix).ageLimite());
         liste.get(choix).manger();
     }
         x++;

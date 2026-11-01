@@ -60,7 +60,7 @@ public class Tamagotchi {
         age++;
         energie--;
         if(ageLimite()){
-            System.out.println("c’est gagné pour moi!");
+            System.out.println(nom+" : c'est gagné pour moi!");
         }    
         else{
             parler();
