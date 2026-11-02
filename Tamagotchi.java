@@ -9,8 +9,9 @@ public class Tamagotchi {
     private int energie;
     private String nom;
 
+    Random rand = new Random();
+
     public Tamagotchi(String nom){
-        Random rand = new Random();
         this.age = 0;
         this.dureeDeVie = rand.nextInt(9,15);
         this.maxEnergie = rand.nextInt(5,10);
@@ -29,7 +30,6 @@ public class Tamagotchi {
     }
 
      public void manger(){
-        Random rand = new Random();
         if(energie >= maxEnergie){
             System.out.println(nom+": je n'ai pas faim !!");
         }
@@ -54,7 +54,7 @@ public class Tamagotchi {
             return true;
         }
         if(energie <= 0){
-            System.out.println("je meurs... Arrrggh !");
+            System.out.println(nom+" : je meurs... Arrrggh !");
             return false;
         }
         age++;
